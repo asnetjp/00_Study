@@ -116,9 +116,7 @@ public class MainActivity extends AppCompatActivity {
         number = numberWindow.getText().toString();
         formula = formulaWindow.getText().toString();
 
-        if(num2 != 0){
 
-        }
 
 
         switch (v.getId()){
@@ -143,6 +141,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
+        if(!number.equals("") && symbol != null && num2 != 0) {
+            formulaWindow.setText(formula + num2 );
+            calculate();
+//            numberWindow.setText(num1);
+        }
+
 
         formulaWindow.setText(number + " " + symbol);
         num1 = Double.parseDouble(number);
@@ -154,37 +158,45 @@ public class MainActivity extends AppCompatActivity {
         number = numberWindow.getText().toString();
         formula = formulaWindow.getText().toString();
         if(!number.equals("") && symbol != null){
-
-            switch (symbol){
-                case "+":
-                    num1 = num1 + num2;
-                    break;
-
-                case "-":
-                    num1 = num1 - num2;
-                    break;
-
-                case "*":
-                    num1 = num1 * num2;
-                    break;
-
-                case "/":
-                    num1 = num1 / num2;
-                    break;
-
-                default:
-            }
-            if(num1 % 1 == 0){
-                numLong = (long)num1;
-                numberWindow.setText(Long.toString(numLong));
-            }else{
-                numberWindow.setText(Double.toString(num1));
-            }
-
-            formulaWindow.setText("");
+            calculate();
+            castToIntAndSetText();
         }
 
 }
+
+    private void castToIntAndSetText() {
+        if(num1 % 1 == 0){
+            numLong = (long)num1;
+            numberWindow.setText(Long.toString(numLong));
+        }else{
+            numberWindow.setText(Double.toString(num1));
+        }
+
+        formulaWindow.setText("");
+        symbol = null;
+    }
+
+    private void calculate() {
+        switch (symbol){
+            case "+":
+                num1 = num1 + num2;
+                break;
+
+            case "-":
+                num1 = num1 - num2;
+                break;
+
+            case "*":
+                num1 = num1 * num2;
+                break;
+
+            case "/":
+                num1 = num1 / num2;
+                break;
+
+            default:
+        }
+    }
 
 
     @Override
