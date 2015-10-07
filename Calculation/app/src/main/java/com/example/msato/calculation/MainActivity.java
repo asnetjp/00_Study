@@ -112,9 +112,13 @@ public class MainActivity extends AppCompatActivity {
         num2 = Double.parseDouble(number);
     }
 
-    public void onSymbol(View v) {
+    public void onClickSymbol(View v) {
         number = numberWindow.getText().toString();
         formula = formulaWindow.getText().toString();
+
+        if(num2 != 0){
+
+        }
 
 
         switch (v.getId()){
@@ -146,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onResult(View v){
+    public void onClickResult(View v){
         number = numberWindow.getText().toString();
         formula = formulaWindow.getText().toString();
         if(!number.equals("") && symbol != null){
@@ -169,14 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 default:
-
-
             }
-
-
-
-
-
             if(num1 % 1 == 0){
                 numLong = (long)num1;
                 numberWindow.setText(Long.toString(numLong));
@@ -185,12 +182,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             formulaWindow.setText("");
-
-
-
-
-
-
         }
 
 }

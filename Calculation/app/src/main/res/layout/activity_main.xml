@@ -133,7 +133,7 @@
                 android:id="@+id/divide"
                 android:layout_column="3"
                 android:text="@string/divide"
-                android:onClick="onSymbol"/>
+                android:onClick="onClickSymbol"/>
 
             <Button
                 android:id="@+id/percent"
@@ -166,7 +166,7 @@
                 android:id="@+id/multiply"
                 android:layout_column="3"
                 android:text="@string/multiply"
-                android:onClick="onSymbol"
+                android:onClick="onClickSymbol"
                 />
 
             <Button
@@ -200,7 +200,7 @@
                 android:id="@+id/minus"
                 android:layout_column="3"
                 android:text="@string/minus"
-                android:onClick="onSymbol"/>
+                android:onClick="onClickSymbol"/>
 
         </TableRow>
 
@@ -222,7 +222,7 @@
                 android:id="@+id/plus"
                 android:layout_column="2"
                 android:text="@string/plus"
-                android:onClick="onSymbol"/>
+                android:onClick="onClickSymbol"/>
 
 
         </TableRow>
@@ -241,7 +241,7 @@
         android:layout_alignBottom="@+id/table"
         android:layout_alignRight="@+id/table"
         android:layout_column="4"
-        android:onClick="onResult"/>
+        android:onClick="onClickResult"/>
 
 
 
