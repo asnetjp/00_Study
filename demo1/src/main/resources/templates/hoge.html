@@ -5,9 +5,10 @@
     <title>Hoge</title>
 </head>
 <body>
-<form method="post">
+<form th:action="@{/profile/name}" method="post">
 	↓上のテキストボックス<p><span th:text="${check.aiueo}">ほげ</span>：受け渡し成功</p>
 	↓下のテキストボックス<p><span th:text="${check.another_aiueo}"></span>：受け渡し失敗</p>
+	<input type="submit" value="戻る">
 </form>
 </body>
 </html>

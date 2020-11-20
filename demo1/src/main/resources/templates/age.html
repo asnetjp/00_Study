@@ -10,7 +10,6 @@
 	<input type="hidden" th:field="*{zz}" />
 	<input type="hidden" th:field="*{blood}" />
     <p>
-    	<!-- th:text = "${○○}" でコントローラーのaddAttributeで追加された値を持ってくる -->
     	<label for="blood">
     	<span th:text="*{zz != ''}? *{zz} : '名無し'">あなた</span>さんの血液型は
     	<span th:text="*{blood}">A</span>型です

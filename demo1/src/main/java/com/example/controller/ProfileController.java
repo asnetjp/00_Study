@@ -25,17 +25,11 @@ public class ProfileController {
     
     @RequestMapping(value = "age", method = RequestMethod.POST)
     /*
-     * @ModelAttribute 指定した値に対応するオブジェクトをModelから探しだし（存在しなければnew)、見つかったオブジェクトとリクエストボディの値を関連付ける
-     * View 
+     * @ModelAttribute オブジェクトに名前をつけてViewに渡す。このとき参照しているのはメソッドの引数として指定されているもの（TestForm form）
      */
-    public String age(@ModelAttribute(name = "s") TestForm form) {	//＠ModelAttributeによってメソッドの引数の変数をname属性の値でもつ
+    public String age(@ModelAttribute(name = "s") TestForm form) {
         return "/age.html";
     }
-    
-    /*
-     * メソッドの戻り値をModelオブジェクト(Viewに値を渡すためのもの）に入れる。（）内でModelに入れる際のキーを指定する。未指定の場合は戻り値のオブジェクトのクラス名から自動生成
-     * "testForm"という名前で戻り値を格納
-     */
 
 	
     @RequestMapping(value = "hello", method = RequestMethod.POST)
