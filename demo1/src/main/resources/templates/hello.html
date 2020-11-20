@@ -5,7 +5,12 @@
 <title>Hello</title>
 </head>
 <body>
-    <p>ようこそ<span th:text="${name}">あなた</span>さん</p>
-    <p><span th:text="${age}">20</span>歳なんですね。</p>
+<form th:action="@{/profile/dice}" method="post">
+    <p>ようこそ<span th:text="*{name}">あなた</span>さん</p>
+    <p>あなたは<span th:text="*{age}">20</span>歳です</p>
+    <p th:text="*{age} %2 == 0? '偶数':'奇数'">あ</p>
+    <p>血液型は<span th:text="*{blood}">A</span>型です</p>
+    <input type="submit" value="あなたのラッキーナンバー">
+</form>
 </body>
 </html>

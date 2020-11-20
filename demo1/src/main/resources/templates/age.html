@@ -5,12 +5,20 @@
 <title>Age</title>
 </head>
 <body>
-<form th:action="@{/profile/hello}" method="post">
-	<input type="hidden" name="name" th:value="${name}" />
+<h1>年齢入力ページ</h1>
+<form th:action="@{/profile/hello}" th:object="${s}" method="post">
+	<input type="hidden" th:field="*{zz}" />
+	<input type="hidden" th:field="*{blood}" />
     <p>
     	<!-- th:text = "${○○}" でコントローラーのaddAttributeで追加された値を持ってくる -->
-        <label for="age"><span th:text="${name}">あなた</span>さんの年齢を入力してください</label>
-        <input type="text" name="age" id="age">
+    	<label for="blood">
+    	<span th:text="*{zz != ''}? *{zz} : '名無し'">あなた</span>さんの血液型は
+    	<span th:text="*{blood}">A</span>型です
+    	</label>
+    </p>
+    <p>
+        <label for="age">年齢を入力してください</label>
+        <input type="text" name="age">
     </p>
     <p>
         <input type="submit" value="次へ">

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Name</title>
+</head>
+<body>
+<!-- th:action に指定されている値をもとにどのコントローラーへ値を送るか決めている -->
+<form th:action="@{/profile/hoge}" method="post">
+	<h2>あなたのラッキーナンバー一覧</h2>
+	<p th:each="dice : ${dice}">
+		<span th:text="${dice}">ランダム</span>
+	</p>
+	<h2>受け渡しチェック</h2>
+	<p>
+	入力した値がhoge.htmlで
+	</p>
+	<p>
+		表示されます：<input type="text" name="aiueo">
+	</p>
+	<p>
+		表示されません：<input type="text" name="another_aiueo1">
+	</p>
+	<input type="submit" value="hogeへ">
+</form>
+</body>
+</html>
