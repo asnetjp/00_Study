@@ -1,4 +1,4 @@
-package com.example.domain;
+package com.example.application.form;
 
 public class TestForm {
 	private String zz;

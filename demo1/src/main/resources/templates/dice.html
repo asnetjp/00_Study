@@ -11,17 +11,6 @@
 	<p th:each="dice : ${dice}">
 		<span th:text="${dice}">ランダム</span>
 	</p>
-	<h2>受け渡しチェック</h2>
-	<p>
-	入力した値がhoge.htmlで
-	</p>
-	<p>
-		表示されます：<input type="text" name="aiueo">
-	</p>
-	<!-- ↓Formオブジェクト内の名前と違うので、hoge.htmlでは出力されません -->
-	<p>
-		表示されません：<input type="text" name="another_aiueo1">
-	</p>
 	<input type="submit" value="hogeへ">
 </form>
 </body>

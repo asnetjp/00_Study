@@ -1,7 +1,9 @@
 package com.example.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -9,12 +11,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.domain.AnotherTestForm;
-import com.example.domain.TestForm;
+import com.example.application.form.AnotherTestForm;
+import com.example.application.form.TestForm;
+import com.example.domain.entity.TestEntity;
+import com.example.domain.service.RandomService;
+import com.example.domain.service.TestInsertService;
+import com.example.domain.service.TestService;
+
 @Controller
+@ComponentScan("com.example.domain")
 //RequestMappingに指定された値でコンテキストルート以下のURLを作っていく
 @RequestMapping("profile")
 public class ProfileController {
+	
 	
     @RequestMapping(value = "name") //name.htmlに対して以下のメソッドが処理を行う
     public String name() {
@@ -39,25 +48,33 @@ public class ProfileController {
     	model.addAttribute("blood",form.getBlood());
         return "/hello.html";
     }
+    @Autowired
+    RandomService randomService;
     
     @RequestMapping("dice")
 	public String dice(ModelMap modelMap) {
-    	int dice = 0;
-    	ArrayList<Integer> randomList = new ArrayList<Integer>();
-    	for(int i = 0; i<5; i++) {
-    		/*
-    		 * Math.floor 与えられた数値以下の最大の整数を返す
-    		 * Math.floorがlong型なのでintに変換
-    		 */
-    		dice = (int)Math.floor(Math.random() * 100);
-    		randomList.add(dice);
-    	}
+    	List<Integer> randomList = randomService.random();
 		modelMap.addAttribute("dice",randomList);
 		return "dice";
 	}
     
-    @RequestMapping(value="hoge")
-    public String hoge(@ModelAttribute(name = "check") AnotherTestForm form) {
-    	return "hoge";
-    }
+	@Autowired
+	TestService testService;
+	
+	@RequestMapping("hoge")
+	public String hoge1(Model model) {
+		List<TestEntity> list = testService.getAllData();
+		model.addAttribute("TestEntity", list);
+		return "hoge";
+	}
+	
+	@Autowired
+	TestInsertService testInsert;
+	
+	@RequestMapping("hoge2")
+	public String hoge2(AnotherTestForm form) {
+		testInsert.insertData(form);
+		return "redirect:/profile/hoge";
+	}
+
 }

@@ -5,10 +5,30 @@
     <title>Hoge</title>
 </head>
 <body>
-<form th:action="@{/profile/name}" method="post">
-	↓上のテキストボックス<p><span th:text="${check.aiueo}">ほげ</span>：受け渡し成功</p>
-	↓下のテキストボックス<p><span th:text="${check.another_aiueo}"></span>：受け渡し失敗</p>
-	<input type="submit" value="戻る">
+<p>
+<table border="1">
+<tr><th>empid</th><th>name</th><th>branch</th><th>age</th><th>hobby</th></tr>
+<tr th:each="list : ${TestEntity}">
+	<td th:text="${list.empId}"></td>
+	<td th:text="${list.name}"></td>
+	<td th:text="${list.branch}"></td>
+	<td th:text="${list.age}"></td>
+	<td th:text="${list.hobname}"></td>
+</tr>
+</table>
+</p>
+<p>
+<form th:action="@{/profile/hoge2}" method="post">
+	<p>名前:<input type="text" name="another"></p>
+	<p>住所:<input type="text" name="branch"></p>
+	<p>年齢:<input type="text" name="age"></p>
+	<p>趣味:<input type="text" name="hobid"></p>
+	<input type="submit" value="新規追加">
+</form>
+</p>
+<form th:action="@{/profile/hoge3}" method="post">
+	<p>ID検索:<input type="text" name="empid"></p>
+	<p><input type="submit" value="検索"></p>
 </form>
 </body>
 </html>
