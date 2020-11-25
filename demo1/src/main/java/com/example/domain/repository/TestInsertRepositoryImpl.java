@@ -11,12 +11,14 @@ public class TestInsertRepositoryImpl implements TestInsertRepository {
 	@Autowired
 	JdbcTemplate jdbc;
 	@Override
-	public void insert(AnotherTestForm form) {
-		jdbc.update("INSERT INTO employee(name, branch,age,hobid) VALUES(?, ?, ?, ?) ",
+	public int insert(AnotherTestForm form) {
+		int results = jdbc.update("INSERT INTO employee(name, branch,age,hobid) "
+				+ "VALUES(?, ?, ?, ?) ",
                 form.getAnother(),
                 form.getBranch(),
                 form.getAge(),
 				form.getHobid());
+		return results;
 	}
-
+		
 }

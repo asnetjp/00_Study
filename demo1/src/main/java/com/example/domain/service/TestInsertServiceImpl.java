@@ -11,7 +11,8 @@ public class TestInsertServiceImpl implements TestInsertService {
 	@Autowired
 	TestInsertRepository testInsert;
 	
-	public void insertData(AnotherTestForm form) {
-		testInsert.insert(form);
+	public int insertData(AnotherTestForm form) {
+		int results = testInsert.insert(form);
+		return results;
 	}
 }

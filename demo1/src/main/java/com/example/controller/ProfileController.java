@@ -72,8 +72,9 @@ public class ProfileController {
 	TestInsertService testInsert;
 	
 	@RequestMapping("hoge2")
-	public String hoge2(AnotherTestForm form) {
-		testInsert.insertData(form);
+	public String hoge2(AnotherTestForm form, Model model) {
+		int results = testInsert.insertData(form);
+		model.addAttribute("result",results);
 		return "redirect:/profile/hoge";
 	}
 
