@@ -2,8 +2,8 @@ package com.example.domain.service;
 
 import java.util.List;
 
-import com.example.domain.entity.TestEntity;
+import com.example.application.form.SelectForm;
 
 public interface TestService {
-	public List<TestEntity> getAllData();
+	public List<SelectForm> getAllData();
 }

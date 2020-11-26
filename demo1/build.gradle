@@ -26,7 +26,3 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-bootRun {
-    sourceResources sourceSets.main
-    jvmArgs=["-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005"]
-}

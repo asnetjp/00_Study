@@ -1,11 +1,18 @@
 package com.example.application.form;
 
-public class AnotherTestForm {
+public class SelectForm {
+	private int empid;
 	private String a_name;
 	private String a_branch;
 	private int a_age;
-	private int hobid;
+	private String hobname;
 	
+	public int getEmpid() {
+		return empid;
+	}
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
 	public String getA_name() {
 		return a_name;
 	}
@@ -24,12 +31,10 @@ public class AnotherTestForm {
 	public void setA_age(int a_age) {
 		this.a_age = a_age;
 	}
-
-	public int getHobid() {
-		return hobid;
+	public String getHobname() {
+		return hobname;
 	}
-	public void setHobid(int hobid) {
-		this.hobid = hobid;
+	public void setHobname(String hobname) {
+		this.hobname = hobname;
 	}
-
 }

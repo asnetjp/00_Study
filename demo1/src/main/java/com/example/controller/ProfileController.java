@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.application.form.AnotherTestForm;
+import com.example.application.form.SelectForm;
 import com.example.application.form.TestForm;
-import com.example.domain.entity.TestEntity;
 import com.example.domain.service.RandomService;
 import com.example.domain.service.TestInsertService;
 import com.example.domain.service.TestService;
@@ -63,8 +63,9 @@ public class ProfileController {
 	
 	@RequestMapping("hoge")
 	public String hoge1(Model model) {
-		List<TestEntity> list = testService.getAllData();
-		model.addAttribute("TestEntity", list);
+		List<SelectForm> list = testService.getAllData();
+		
+		model.addAttribute("Select", list);
 		return "hoge";
 	}
 	
@@ -73,9 +74,14 @@ public class ProfileController {
 	
 	@RequestMapping("hoge2")
 	public String hoge2(AnotherTestForm form, Model model) {
-		int results = testInsert.insertData(form);
+		int results = 0;
+		try {
+			results = testInsert.insertData(form);
+		}catch(RuntimeException e) {
+			e.printStackTrace();
+		}
 		model.addAttribute("result",results);
-		return "redirect:/profile/hoge";
+		return "hoge2";
 	}
 
 }

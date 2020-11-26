@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Name</title>
+</head>
+<body>
+<form th:action="@{/profile/hoge}" method="post">
+	<p th:text="${result == 1}? '登録成功':'登録失敗'">結果</p>
+	<input type="submit" value="戻る">
+</form>
+</body>
+</html>

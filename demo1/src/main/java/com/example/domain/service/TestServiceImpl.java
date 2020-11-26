@@ -2,11 +2,11 @@ package com.example.domain.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.application.form.SelectForm;
 import com.example.domain.entity.TestEntity;
 import com.example.domain.repository.TestRepository;
 
@@ -15,8 +15,9 @@ public class TestServiceImpl implements TestService {
 	@Autowired
 	TestRepository testRepository;
 	
-	public List<TestEntity> getAllData(){
-		List<TestEntity> empList = testRepository.getAll();
+	public List<SelectForm> getAllData(){
+		List<SelectForm> list = new ArrayList<>();
+ 		List<TestEntity> empList = testRepository.getAll();
 		/*
 		 * //entityクラスでセットした値を追加するList List<TestEntity> list = new ArrayList<>();
 		 * for(TestEntity str1 : empList) { TestEntity testEntity = new TestEntity();
@@ -26,6 +27,15 @@ public class TestServiceImpl implements TestService {
 		 * testEntity.setHobname(str1.getHobname()); //セットされた値をTestEntity型のListに追加
 		 * list.add(testEntity); }
 		 */
-		return empList;
+ 		for(TestEntity entity : empList) {
+ 			SelectForm form = new SelectForm();
+ 			form.setEmpid(entity.getEmpId());
+ 			form.setA_name(entity.getName());
+ 			form.setA_branch(entity.getBranch());
+ 			form.setA_age(entity.getAge());
+ 			form.setHobname(entity.getHobname());
+ 			list.add(form);
+ 		}
+		return list;
 	}
 }
