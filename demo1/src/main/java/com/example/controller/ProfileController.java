@@ -89,15 +89,5 @@ public class ProfileController {
 		model.addAttribute("result",results);
 		return "hoge2";
 	}
-	  @GetMapping(value = "/")
-	  public ModelAndView index(HttpServletResponse response, ModelAndView mav) {
-	    mav.setViewName("index");
-	    return mav;
-	  }
 
-	  @PostMapping("/")
-	  public ModelAndView postIndex(HttpServletResponse response, @RequestBody JsonModel model, ModelAndView mav) {
-	    mav.setViewName("index");
-	    return mav;
-	  }
 }
