@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.domain.entity.UserData;
@@ -29,8 +30,8 @@ public class DemoController {
 	}
 	 @PostMapping("/ajaxTest")
 	 @ResponseBody
-	  public String ajaxAdd(HttpServletResponse response,  @RequestBody UserData user1) {
-		 user.getAll(user1);
-	    return "ajaxTest";
+	  public UserData ajaxAdd(@RequestBody UserData user) {
+		user.setName("aaa");
+	    return user;
 	  }
 }

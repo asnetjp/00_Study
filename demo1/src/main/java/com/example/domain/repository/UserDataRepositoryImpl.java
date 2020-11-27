@@ -21,8 +21,7 @@ public class UserDataRepositoryImpl implements UserDataRepository {
 	@Override
 	public List<UserData> getAll(UserData user) {
 			List<UserData> results = new ArrayList<>();
-			String sql = "SELECT name FROM employee WHERE empid = ?",
-					;
+			String sql = "SELECT name FROM employee";
 			results = jdbc.query(sql, new BeanPropertyRowMapper<UserData>(UserData.class));
 			return results;
 		}
