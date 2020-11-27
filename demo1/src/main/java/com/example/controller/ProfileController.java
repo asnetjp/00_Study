@@ -67,12 +67,12 @@ public class ProfileController {
 	@Autowired
 	TestService testService;
 	
-	@RequestMapping("hoge")
+	@RequestMapping("/ajaxTest")
 	public String hoge1(Model model) {
 		List<SelectForm> list = testService.getAllData();
 		
 		model.addAttribute("Select", list);
-		return "hoge";
+		return "ajaxTest";
 	}
 	
 	@Autowired

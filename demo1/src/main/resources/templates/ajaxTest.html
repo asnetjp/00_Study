@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Ajax test</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/ajaxTest.js}"></script>
+  </head>
+  <h1>ID検索</h1>
+  <body>
+  <input type="text" id = "empid">
+    <input type="button" id="ajax_button" value="検索">
+    <br/><br/><br/>
+    ★以下に検索されたデータが表示されます
+    <table border="0">
+        <tr>
+            <td align="left" valign="top">名前：</td>
+            <td>
+                <span id="name" th:text="${name}"></span>
+            </td>
+    </table>
+</html>
