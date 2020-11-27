@@ -19,7 +19,7 @@ public class TestInsertServiceImpl implements TestInsertService {
 		 * results == 1 例外が発生する
 		 * results != 1 例外が発生しない  
 		 */
-		if(results == 1) {	
+		if(results != 1) {	
 			throw new RuntimeException();
 		}
 		return results;
