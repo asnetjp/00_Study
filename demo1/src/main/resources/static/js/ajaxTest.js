@@ -13,7 +13,7 @@ $("#ajax_button").on('click',function(){
 		data : JSON.stringify(send_id),
 		contentType : 'application/json',
 		success: function(data1) {
-			$("#name").text(JSON.stringify(data1));
+			$("#name").html(JSON.stringify(data1));
             alert("送信が完了しました。");
         },
         error: function() {

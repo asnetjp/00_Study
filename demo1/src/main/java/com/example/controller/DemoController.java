@@ -22,7 +22,7 @@ import com.example.domain.repository.UserDataRepository;
 @Controller
 public class DemoController {
 	@Autowired
-	UserDataRepository user;
+	UserDataRepository userData;
 	
 	@GetMapping("/ajaxTest")
 	public String ajax() {
@@ -30,8 +30,8 @@ public class DemoController {
 	}
 	 @PostMapping("/ajaxTest")
 	 @ResponseBody
-	  public UserData ajaxAdd(@RequestBody UserData user) {
-		user.setName("aaa");
-	    return user;
+	  public List<UserData> ajaxAdd(@RequestBody UserData user) {
+		List<UserData> list = userData.getAll(user);
+	    return list;
 	  }
 }
